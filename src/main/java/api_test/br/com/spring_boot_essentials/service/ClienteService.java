@@ -13,7 +13,7 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
 
-    public ClienteModel cadastarCliente(ClienteModel clienteModel) {
+    public ClienteModel cadastrarCliente(ClienteModel clienteModel) {
         return clienteRepository.save(clienteModel);
     }
 

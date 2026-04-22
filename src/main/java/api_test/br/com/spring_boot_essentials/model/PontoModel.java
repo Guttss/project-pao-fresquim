@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -22,12 +22,16 @@ public class PontoModel {
     private LocalDate data;
 
     @Column(nullable = false)
-    private LocalDateTime horaEntrada;
+    private LocalTime horaEntrada;
 
     @Column(nullable = false)
-    private LocalDateTime horaSaida;
+    private LocalTime horaSaida;
 
-    public PontoModel(Integer id, LocalDate data, LocalDateTime horaEntrada, LocalDateTime horaSaida) {
+    @ManyToOne
+    @JoinColumn(name = "funcionario_id")
+    private FuncionarioModel funcionario;
+
+    public PontoModel(Integer id, LocalDate data, LocalTime horaEntrada, LocalTime horaSaida) {
         this.id = id;
         this.data = data;
         this.horaEntrada = horaEntrada;
