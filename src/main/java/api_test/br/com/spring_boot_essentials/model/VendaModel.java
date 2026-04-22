@@ -30,7 +30,7 @@ public class VendaModel {
     @JoinColumn(name = "pagamento_id", referencedColumnName = "id")
     private PagamentoModel pagamento;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "cliente_id")
     private ClienteModel cliente;
 
