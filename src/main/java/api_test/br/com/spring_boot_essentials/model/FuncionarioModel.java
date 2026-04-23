@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -19,7 +22,10 @@ public class FuncionarioModel {
     private String cargo;
 
     @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
-    private PontoModel ponto;
+    private List<PontoModel> pontos = new ArrayList<>();
+
+    @Embedded
+    private EnderecoModel endereco;
 
     public FuncionarioModel(Integer id, String nome, String cargo) {
         this.id = id;

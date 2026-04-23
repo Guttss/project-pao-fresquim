@@ -20,9 +20,11 @@ public class ClienteModel {
     private String nome;
     private String telefone;
     private String email;
-    private String endereco;
     private String cpf;
     private boolean bloqueado = false;
+
+    @Enumerated
+    private EnderecoModel endereco;
 
     @OneToMany(mappedBy = "vendas")
     private List<VendaModel> vendas = new ArrayList<>();
@@ -30,12 +32,11 @@ public class ClienteModel {
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<DividaModel> dividas = new ArrayList<>();
 
-    public ClienteModel(Integer id, String nome, String telefone, String email, String endereco) {
+    public ClienteModel(Integer id, String nome, String telefone, String email) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
-        this.endereco = endereco;
     }
 
     public ClienteModel(String nome, String telefone, String email, String endereco) {}
