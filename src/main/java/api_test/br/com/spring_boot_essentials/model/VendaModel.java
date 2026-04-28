@@ -22,8 +22,8 @@ public class VendaModel {
     private LocalDate dataVenda;
     private Double valorTotal;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "venda_id")
+    @ManyToMany
+    @JoinTable(name = "venda_id", joinColumns = @JoinColumn(name = "venda_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
     private List<ProdutoModel> produtos = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)

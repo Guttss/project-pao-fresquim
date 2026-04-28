@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "Clientes")
+@Table(name = "clientes")
 public class ClienteModel {
 
     @Id
@@ -26,7 +26,7 @@ public class ClienteModel {
     @Enumerated
     private EnderecoModel endereco;
 
-    @OneToMany(mappedBy = "vendas")
+    @OneToMany(mappedBy = "cliente")
     private List<VendaModel> vendas = new ArrayList<>();
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
@@ -39,5 +39,5 @@ public class ClienteModel {
         this.email = email;
     }
 
-    public ClienteModel(String nome, String telefone, String email, String endereco) {}
+    public ClienteModel() {}
 }
