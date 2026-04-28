@@ -16,16 +16,18 @@ public class ProdutoModel {
     private String nome;
     private Integer quantidade;
     private Double preco;
+    private String categoria;
 
     @Column(nullable = false)
     private String codigoBarras;
 
-    public ProdutoModel(Integer id, String nome, Double preco, Integer quantidade, String codigoBarras) {
+    public ProdutoModel(Integer id, String nome, Double preco, Integer quantidade, String codigoBarras, String categoria) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
         this.codigoBarras = codigoBarras;
+        this.categoria = categoria;
     }
 
     public ProdutoModel() {}

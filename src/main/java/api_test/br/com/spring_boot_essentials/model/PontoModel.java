@@ -11,7 +11,7 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "ponto")
+@Table(name = "pontos")
 public class PontoModel {
 
     @Id

@@ -1,6 +1,9 @@
 package api_test.br.com.spring_boot_essentials.model;
 
 import api_test.br.com.spring_boot_essentials.service.DividaService;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
