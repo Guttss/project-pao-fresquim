@@ -26,7 +26,7 @@ public class ClienteService {
         if(checarCliente) {
             bloquearCliente(cliente);
         }
-        return true;
+        return false;
     }
 
     public void bloquearCliente(ClienteModel cliente){
