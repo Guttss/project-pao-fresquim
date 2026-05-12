@@ -26,4 +26,21 @@ public class ClienteController {
         return clienteService.validarSerasa(id);
     }
 
+    @GetMapping("/{id}")
+    public ClienteResponseDTO buscarCliente(
+        @PathVariable Integer id){
+
+        ClienteModel cliente =
+            repository.findById(id).get();
+
+            return service.converterParaDTO(cliente);
+    }
+
+    @PostMapping
+    public ClienteResponseDTO cadastrarCliente(
+        @RequestBody ClienteRequestDTO dto){
+
+        return clienteService.cadastrar(dto);
+    }
+
 }

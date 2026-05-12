@@ -13,8 +13,39 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
 
-    public ClienteModel cadastrarCliente(ClienteModel clienteModel) {
-        return clienteRepository.save(clienteModel);
+
+    public ClienteModel converterParaModel(ClienteRequestDTO dto){
+
+        ClienteModel cliente = new ClienteModel();
+        cliente.setNome(dto.getNome());
+        cliente.setTelefone(dto.getTelefone());
+        cliente.setEmail(dto.getEmail());
+        cliente.setCpf(dto.getCpf());
+
+        return cliente;
+    }
+
+    public ClienteResponseDTO converterParaDTO(ClienteModel cliente){
+
+        ClienteResponseDTO dto = new ClienteResponseDTO();
+
+        dto.setId(cliente.getId());
+        dto.setNome(cliente.getNome());
+        dto.setTelefone(cliente.getTelefone());
+        dto.setEmail(cliente.getEmail());
+
+    return dto;
+    }  
+
+    public ClienteResponseDTO cadastrarCliente(
+            ClienteRequestDTO dto){
+
+        ClienteModel cliente =
+                converterParaModel(dto);
+
+        cliente = clienteRepository.save(cliente);
+
+        return converterParaDTO(cliente);
     }
 
     public boolean validarSerasa(Integer clienteId){
