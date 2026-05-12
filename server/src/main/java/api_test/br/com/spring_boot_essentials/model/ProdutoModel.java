@@ -1,6 +1,11 @@
 package api_test.br.com.spring_boot_essentials.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,12 +18,12 @@ public class ProdutoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
+    private String nome; 
     private Integer quantidade;
     private Double preco;
     private String categoria;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true) // Garante que o código de barras seja único e não nulo
     private String codigoBarras;
 
     public ProdutoModel(Integer id, String nome, Double preco, Integer quantidade, String codigoBarras, String categoria) {
